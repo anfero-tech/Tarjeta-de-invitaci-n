@@ -172,7 +172,7 @@ c3.metric("Minutos", (faltan.seconds // 60) % 60)
 st.markdown("""
     <div class='contacto-box'>
         Confirmar asistencia:<br>
-        <span style='font-size: 22px;'>310 609 8356</span>
+        <span style='font-size: 22px;'>319 636 0231</span>
     </div>
     """, unsafe_allow_html=True)
 
@@ -219,4 +219,5 @@ st.markdown("""
         2026
     </div>
     """, unsafe_allow_html=True)
+
 
