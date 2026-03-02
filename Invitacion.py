@@ -60,7 +60,7 @@ st.markdown("""
         line-height: 1.6;
     }
 
-    /* CUENTA REGRESIVA PEQUEÑA (Para evitar que se ponga vertical) */
+    /* CUENTA REGRESIVA PEQUEÑA */
     .timer-container {
         display: flex;
         justify-content: center;
@@ -87,7 +87,6 @@ st.markdown("""
         margin: 5px 0;
     }
 
-    /* Estilo del botón de Streamlit */
     .stButton>button {
         width: 100%;
         border-radius: 20px;
@@ -120,10 +119,10 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-# Cuenta regresiva horizontal optimizada
+# Cuenta regresiva horizontal
 fecha = datetime(2026, 3, 21, 19, 0)
 diff = fecha - datetime.now()
-d, h, m = diff.days, diff.seconds//3600, (diff.seconds//60)%60
+d, h, m = max(0, diff.days), max(0, diff.seconds//3600), max(0, (diff.seconds//60)%60)
 
 st.markdown(f"""
     <div class='timer-container'>
@@ -157,7 +156,6 @@ with st.form("asistencia_form"):
         else:
             st.warning("Por favor, ingresa tu nombre antes de continuar.")
 
-# Mostrar el botón de WhatsApp solo si ya ingresaron el nombre
 if 'nombre_confirmado' in st.session_state:
     nombre_inv = st.session_state['nombre_confirmado']
     num = "573196360231" 
@@ -177,4 +175,11 @@ if 'nombre_confirmado' in st.session_state:
         </div>
         """, unsafe_allow_html=True)
 
-
+# MENSAJE FINAL CORREGIDO
+st.markdown("""
+    <br><br>
+    <div style='text-align:center;'>
+        <p style='font-size:14px; color:#243656; font-family:Raleway; margin-bottom:0;'>Con mucho amor...</p>
+        <p style='font-size:16px; color:#D4AF37; font-family:Cinzel; font-weight:bold;'>Familia Londoño Gonzalez y Novio ❤️</p>
+    </div>
+    """, unsafe_allow_html=True)
