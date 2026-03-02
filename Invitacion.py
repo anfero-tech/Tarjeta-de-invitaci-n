@@ -128,7 +128,7 @@ st.markdown("""
 
 st.markdown(f"""
     <div style='text-align: center;'>
-        <p class='info-texto'><span class='dorado-sutil'>SÁBADO 21 DE MARZO</span></p>
+        <p class='info-texto'><span class='dorado-sutil'>DOMINGO 22 DE MARZO</span></p>
         <p class='info-texto'>07:00 P.M.</p>
         <hr style='border: 0.5px solid #eee; width: 40%; margin: 10px auto;'>
         <p class='info-texto'>Conjunto Residencial Altos del Moral</p>
@@ -174,4 +174,5 @@ st.markdown("""
         Familia Gonzalez Londoño y Novio ❤️
     </div>
     """, unsafe_allow_html=True)
+
 
