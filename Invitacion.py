@@ -159,7 +159,7 @@ with st.form("confirmacion"):
     if confirmar:
         if nombre_invitado:
             # Número de la mamá de Valentina
-            numero_mama = "573106098356" 
+            numero_mama = "573196360231" 
             mensaje_wa = f"¡Hola! Confirmo mi asistencia al grado de Valentina. Atentamente: {nombre_invitado}"
             url_whatsapp = f"https://wa.me/{numero_mama}?text={urllib.parse.quote(mensaje_wa)}"
             
@@ -174,5 +174,6 @@ st.markdown("""
         Familia Gonzalez Londoño y Novio ❤️
     </div>
     """, unsafe_allow_html=True)
+
 
 
