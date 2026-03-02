@@ -5,219 +5,150 @@ import urllib.parse
 # 1. Configuración para móvil
 st.set_page_config(page_title="Grado de Valentina", page_icon="⚖️", layout="centered")
 
-# 2. CSS PROFESIONAL Y RESPONSIVO PARA CELULARES
+# 2. CSS PARA COPOS Y DISEÑO HORIZONTAL
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@700&family=Raleway:ital,wght@1,400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Raleway:wght@400;700&display=swap');
 
-    /* Fondo crema con iconos de derecho y birretes sutiles */
     .stApp {
         background-color: #fdfaf5;
         background-image: url("https://www.transparenttextures.com/patterns/gray-floral.png");
     }
 
-    /* Contenedor del encabezado azul */
+    /* EFECTO DE COPOS / NIEVE */
+    .snowflake {
+      color: #fff;
+      font-size: 1em;
+      font-family: Arial;
+      text-shadow: 0 0 1px #000;
+    }
+
+    @-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}
+    @-webkit-keyframes snowflakes-shake{0%{-webkit-transform:translateX(0px);transform:translateX(0px)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}100%{-webkit-transform:translateX(0px);transform:translateX(0px)}}
+    @keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}
+    @keyframes snowflakes-shake{0%{transform:translateX(0px)}50%{transform:translateX(80px)}100%{transform:translateX(0px)}}
+    .snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}
+    .snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}
+    .snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}
+    .snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}
+    .snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}
+    .snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}
+    .snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}
+    .snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}
+
     .header-azul {
         background-color: #243656;
-        padding: 40px 10px;
+        padding: 30px 10px;
         text-align: center;
         margin: -60px -20px 30px -20px;
         border-bottom: 5px solid #D4AF37;
     }
 
-    /* TÍTULO EN CURSIVA, GIGANTE Y BLANCO */
     .titulo-mega {
         font-family: 'Great Vibes', cursive;
-        font-size: 70px !important; /* Ajustado para pantalla de celular */
-        color: #ffffff !important; /* Forzamos color BLANCO */
+        font-size: 50px !important;
+        color: #ffffff !important;
         margin: 0;
-        padding: 0;
-        line-height: 1.1;
     }
 
-    .nombre-valentina {
-        font-family: 'Cinzel', serif;
-        font-size: 20px;
-        color: #D4AF37;
-        letter-spacing: 2px;
-        margin-top: 15px; /* Separación clara del título */
-        font-weight: 700;
-        text-transform: uppercase;
-    }
-
-    /* CUADRO DE TEXTO EMOTIVO */
     .texto-emotivo {
         font-family: 'Raleway', sans-serif;
-        font-size: 18px;
-        font-style: italic;
+        font-size: 15px;
         text-align: center;
         color: #243656;
         padding: 20px;
-        background: rgba(255, 255, 255, 0.7);
-        border-radius: 10px;
-        margin-bottom: 30px;
-        line-height: 1.6;
+        line-height: 1.5;
     }
 
-    /* ICONOS DE FONDO (BALANZA Y BIRRETE) */
-    .decoracion-fondo {
-        text-align: center;
-        opacity: 0.1;
-        font-size: 100px;
-        position: absolute;
-        width: 100%;
-        z-index: -1;
+    /* CUENTA REGRESIVA MINI HORIZONTAL */
+    .timer-container {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin: 15px 0;
     }
-
-    /* BOTÓN Y CONTACTO */
-    .contacto-box {
-        background-color: #243656;
-        color: white;
+    .timer-box {
+        background: white;
+        padding: 8px;
+        border-radius: 5px;
+        min-width: 50px;
         text-align: center;
-        padding: 15px;
-        border-radius: 8px;
+        border: 1px solid #D4AF37;
+    }
+    .timer-num { font-size: 16px; font-weight: bold; color: #243656; }
+    .timer-lab { font-size: 9px; text-transform: uppercase; color: #D4AF37; }
+
+    .info-texto {
         font-family: 'Cinzel', serif;
-        border: 2px solid #D4AF37;
-        margin-top: 20px;
-    }
-    
-    /* Quitar padding extra de Streamlit en móvil */
-    .block-container {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        font-size: 14px;
+        color: #243656;
+        text-align: center;
+        margin: 4px 0;
     }
     </style>
-    """, unsafe_allow_html=True)
-
-# 3. EFECTO DE COPOS DE NIEVE/ESTRELLAS (JavaScript)
-st.markdown("""
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <script>
-        var duration = 10 * 1000;
-        var animationEnd = Date.now() + duration;
-        var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-        function randomInRange(min, max) {
-          return Math.random() * (max - min) + min;
-        }
-
-        var interval = setInterval(function() {
-          var timeLeft = animationEnd - Date.now();
-
-          if (timeLeft <= 0) {
-            return clearInterval(interval);
-          }
-
-          var particleCount = 50 * (timeLeft / duration);
-          // COPOS DE NIEVE / ESTRELLAS
-          confetti(Object.assign({}, defaults, { 
-            particleCount, 
-            origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-            colors: ['#ffffff', '#D4AF37'],
-            shapes: ['circle', 'star'] 
-          }));
-          confetti(Object.assign({}, defaults, { 
-            particleCount, 
-            origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-            colors: ['#ffffff', '#D4AF37'],
-            shapes: ['circle', 'star']
-          }));
-        }, 250);
-    </script>
-    """, unsafe_allow_html=True)
-
-# --- CONTENIDO DE LA INVITACIÓN OBTENIDO DE LAS IMÁGENES ---
-
-# Iconos de fondo sutiles
-st.markdown("<div class='decoracion-fondo'>⚖️ <br> 🎓</div>", unsafe_allow_html=True)
-
-# Encabezado Azul
-st.markdown("""
-    <div class='header-azul'>
-        <h1 class='titulo-mega'>Mi Graduación</h1>
-        <div class='nombre-valentina'>Valentina Londoño Gonzalez</div>
+    
+    <div class="snowflakes" aria-hidden="true">
+      <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❅</div>
+      <div class="snowflake">❆</div><div class="snowflake">❅</div><div class="snowflake">❆</div>
     </div>
     """, unsafe_allow_html=True)
 
-# Texto Emotivo (Obtenido de las imágenes)
+# --- CONTENIDO ---
+st.markdown("<div class='header-azul'><h1 class='titulo-mega'>Mi Graduación</h1></div>", unsafe_allow_html=True)
+
 st.markdown("""
     <div class='texto-emotivo'>
-        "Después de años de esfuerzo, sacrificios y sueños que jamás abandoné, 
+        Después de años de esfuerzo, sacrificios y sueños que jamás abandoné, 
         hoy recojo el fruto de mi constancia. Nada de esto habría sido posible 
-        sin el amor, el apoyo y la guía incondicional de mis padres.
-        Con el corazón lleno de gratitud, hoy me convierto en abogada."
+        sin el amor, el apoyo y la guía incondicional de mis padres. 
+        Con el corazón lleno de gratitud, hoy me convierto en abogada.
     </div>
     """, unsafe_allow_html=True)
 
-# Información del evento (Obtenida de las imágenes)
+# Cuenta regresiva horizontal pequeña
+fecha = datetime(2026, 3, 21, 19, 0)
+diff = fecha - datetime.now()
+d, h, m = diff.days, diff.seconds//3600, (diff.seconds//60)%60
+
+st.markdown(f"""
+    <div class='timer-container'>
+        <div class='timer-box'><div class='timer-num'>{d}</div><div class='timer-lab'>Días</div></div>
+        <div class='timer-box'><div class='timer-num'>{h}</div><div class='timer-lab'>Hrs</div></div>
+        <div class='timer-box'><div class='timer-num'>{m}</div><div class='timer-lab'>Min</div></div>
+    </div>
+    """, unsafe_allow_html=True)
+
 st.markdown("""
-    <div style='text-align: center; color: #243656; font-family: "Cinzel";'>
-        <h2 style='color: #D4AF37;'>Sábado 21 de Marzo</h2>
-        <p style='font-size: 20px;'>07:00 P.M.</p>
-        <hr style='border: 1px solid #D4AF37; width: 50%; margin: auto;'>
-        <p style='margin-top: 15px;'><b>Conjunto Residencial Altos del Moral</b><br>Salón de Recepciones</p>
-        <h3 style='color: #D4AF37; margin-top: 20px;'>✉️ Lluvia de Sobres</h3>
+    <div style='text-align: center; margin-bottom: 20px;'>
+        <p class='info-texto' style='color:#D4AF37; font-weight:bold;'>SÁBADO 21 DE MARZO - 07:00 P.M.</p>
+        <p class='info-texto'>Altos del Moral (Salón de Recepciones)</p>
+        <p class='info-texto'>Cra. 8A #153 - 51</p>
+        <p class='info-texto' style='color:#D4AF37;'>✉️ Lluvia de Sobres</p>
     </div>
     """, unsafe_allow_html=True)
 
-# Conteo Regresivo
-fecha_evento = datetime(2026, 3, 21, 19, 0, 0) # Fecha ajustada para conteo
-faltan = fecha_evento - datetime.now()
-c1, c2, c3 = st.columns(3)
-c1.metric("Días", max(0, faltan.days))
-c2.metric("Horas", max(0, faltan.seconds // 3600))
-c3.metric("Minutos", (faltan.seconds // 60) % 60)
-
-# Contacto (Obtenido de las imágenes)
-st.markdown("""
-    <div class='contacto-box'>
-        Confirmar asistencia:<br>
-        <span style='font-size: 22px;'>319 636 0231</span>
-    </div>
-    """, unsafe_allow_html=True)
-
-# Formulario personalizado para móvil
-with st.form("asistencia"):
-    nombre = st.text_input("Nombre del invitado")
+# FORMULARIO
+with st.form("conf"):
+    nombre = st.text_input("¿Quién confirma?")
+    btn = st.form_submit_button("CONFIRMAR ASISTENCIA")
     
-    # CSS para centrar y estilizar el botón del formulario
-    st.markdown("""
-        <style>
-        .stButton>button {
-            display: block;
-            width: 100%;
-            background-color: #243656 !important;
-            color: white !important;
-            font-family: 'Cinzel', serif !important;
-            border: 2px solid #D4AF37 !important;
-            border-radius: 8px !important;
-            padding: 10px !important;
-        }
-        </style>
-    """, unsafe_allow_html=True)
-    
-    submit = st.form_submit_button("¡ALLÍ ESTARÉ!")
-    
-    if submit:
-        # Mensaje de agradecimiento después de confirmar
-        st.success(f"¡Muchas gracias por tu confirmación, {nombre}! Te esperamos.")
+    if btn and nombre:
+        # CORRECCIÓN DE WHATSAPP:
+        # El número debe ir sin el "+" inicial en el enlace wa.me para que funcione en todos los navegadores
+        num = "573196360231" 
+        txt = urllib.parse.quote(f"¡Hola! Soy {nombre}, confirmo mi asistencia al grado de Valentina. ¡Muchas gracias!")
+        link = f"https://wa.me/{num}?text={txt}"
         
-        # Redirección a WhatsApp con mensaje predefinido para la mamá de Valentina
-        # Número de teléfono de la mamá (obtenido de las imágenes)
-        numero_mama = "+573196360231" 
-        mensaje = f"¡Hola! Confirmo mi asistencia al grado de Valentina. Atentamente: {nombre}"
-        url_whatsapp = f"https://wa.me/{numero_mama}?text={urllib.parse.quote(mensaje)}"
-        
-        # Usamos un componente de Streamlit para redirigir
-        st.markdown(f'<meta http-equiv="refresh" content="0;URL={url_whatsapp}">', unsafe_allow_html=True)
+        st.balloons() # Efecto de globos al confirmar
+        st.success(f"¡Gracias {nombre}! Haz clic en el enlace para enviar el mensaje.")
+        st.markdown(f'''
+            <a href="{link}" target="_blank" style="text-decoration:none;">
+                <div style="background-color:#25D366; color:white; padding:15px; border-radius:10px; text-align:center; font-weight:bold;">
+                    ¡CLIC AQUÍ PARA ENVIAR WHATSAPP!
+                </div>
+            </a>
+            ''', unsafe_allow_html=True)
 
-# Mensaje de amor final
-st.markdown("""
-    <div style='text-align: center; font-family:serif; color:#aaaaaa; font-size: 12px; margin-top: 50px;'>
-        Con mucho amor...<br>
-        Familia Gonzalez Londoño y Novio ❤️<br>
-        2026
-    </div>
-    """, unsafe_allow_html=True)
+st.markdown("<br><p style='text-align:center; font-size:10px; color:gray;'>Familia Gonzalez Londoño y Novio ❤️</p>", unsafe_allow_html=True)
 
 
