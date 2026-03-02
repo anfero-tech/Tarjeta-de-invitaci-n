@@ -204,7 +204,7 @@ with st.form("asistencia"):
         
         # Redirección a WhatsApp con mensaje predefinido para la mamá de Valentina
         # Número de teléfono de la mamá (obtenido de las imágenes)
-        numero_mama = "+573106098356" 
+        numero_mama = "+573196360231" 
         mensaje = f"¡Hola! Confirmo mi asistencia al grado de Valentina. Atentamente: {nombre}"
         url_whatsapp = f"https://wa.me/{numero_mama}?text={urllib.parse.quote(mensaje)}"
         
@@ -219,3 +219,4 @@ st.markdown("""
         2026
     </div>
     """, unsafe_allow_html=True)
+
