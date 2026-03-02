@@ -131,13 +131,13 @@ st.markdown(f"""
     </div>
     """, unsafe_allow_html=True)
 
-# INFORMACIÓN CON LLUVIA DE SOBRES SUBRAYADO
+# INFORMACIÓN CON LLUVIA DE SOBRES EN NEGRILLA
 st.markdown("""
     <div style='text-align: center; margin: 20px 0;'>
         <p class='info-texto' style='color:#D4AF37; font-weight:bold; font-size:16px;'>DOMINGO 22 DE MARZO - 07:00 P.M.</p>
         <p class='info-texto'>Altos del Moral (Salón de Recepciones)</p>
         <p class='info-texto'>Cra. 8A #153 - 51</p>
-        <p class='info-texto' style='color:#D4AF37;'>✉️ <span style='text-decoration: underline;'>Lluvia de Sobres</span></p>
+        <p class='info-texto' style='color:#D4AF37;'>✉️ <b>Lluvia de Sobres</b></p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -183,4 +183,3 @@ st.markdown("""
         <p style='font-size:16px; color:#D4AF37; font-family:Cinzel; font-weight:bold;'>Familia Londoño Gonzalez y Novio ❤️</p>
     </div>
     """, unsafe_allow_html=True)
-
