@@ -60,7 +60,6 @@ st.markdown("""
         line-height: 1.6;
     }
 
-    /* CUENTA REGRESIVA PEQUEÑA */
     .timer-container {
         display: flex;
         justify-content: center;
@@ -119,7 +118,7 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-# Cuenta regresiva horizontal
+# Cuenta regresiva
 fecha = datetime(2026, 3, 21, 19, 0)
 diff = fecha - datetime.now()
 d, h, m = max(0, diff.days), max(0, diff.seconds//3600), max(0, (diff.seconds//60)%60)
@@ -132,12 +131,13 @@ st.markdown(f"""
     </div>
     """, unsafe_allow_html=True)
 
+# INFORMACIÓN CON LLUVIA DE SOBRES SUBRAYADO
 st.markdown("""
     <div style='text-align: center; margin: 20px 0;'>
         <p class='info-texto' style='color:#D4AF37; font-weight:bold; font-size:16px;'>DOMINGO 22 DE MARZO - 07:00 P.M.</p>
         <p class='info-texto'>Altos del Moral (Salón de Recepciones)</p>
         <p class='info-texto'>Cra. 8A #153 - 51</p>
-        <p class='info-texto' style='color:#D4AF37;'>✉️ Lluvia de Sobres</p>
+        <p class='info-texto' style='color:#D4AF37;'>✉️ <span style='text-decoration: underline;'>Lluvia de Sobres</span></p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -175,7 +175,7 @@ if 'nombre_confirmado' in st.session_state:
         </div>
         """, unsafe_allow_html=True)
 
-# MENSAJE FINAL CORREGIDO
+# MENSAJE FINAL
 st.markdown("""
     <br><br>
     <div style='text-align:center;'>
@@ -183,3 +183,4 @@ st.markdown("""
         <p style='font-size:16px; color:#D4AF37; font-family:Cinzel; font-weight:bold;'>Familia Londoño Gonzalez y Novio ❤️</p>
     </div>
     """, unsafe_allow_html=True)
+
